@@ -15,7 +15,7 @@ fn main() {
         // The input header we would like to generate
         // bindings for.
         .header("wrapper.h")
-        .clang_arg("-I/usr/local/include/ossia-c/")
+        .clang_arg("-Ideps/libossia/src/ossia-c/")
         // Tell cargo to invalidate the built crate whenever any of the
         // included header files changed.
         .parse_callbacks(Box::new(bindgen::CargoCallbacks))
@@ -30,7 +30,7 @@ fn main() {
         .write_to_file(out_path.join("bindings.rs"))
         .expect("Couldn't write bindings!");
 
-    let dst = Config::new("/home/alex/local/src/libossia/")
+    let dst = Config::new("deps/libossia/")
         .define("OSSIA_C", "ON")
         .define("OSSIA_CPP", "ON")
         .define("OSSIA_MOST_STATIC", "ON")
