@@ -3,6 +3,7 @@ name = "ossia-sys"
 version = "0.1.0"
 authors = ["Alex Norman <alex@x37v.info>"]
 edition = "2018"
+license = "CeCILL-C FREE SOFTWARE LICENSE AGREEMENT"
 
 [build-dependencies]
 cmake = "0.1.42"
