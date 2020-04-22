@@ -1,0 +1,10 @@
+[package]
+name = "ossia-sys"
+version = "0.1.0"
+authors = ["Alex Norman <alex@x37v.info>"]
+edition = "2018"
+
+[dependencies]
+
+[build-dependencies]
+bindgen = "0.53.2"
