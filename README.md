@@ -1,6 +1,6 @@
 # ossia-sys
 
-rust 'sys' bindings for [https://github.com/OSSIA/libossia](libossia).
+rust 'sys' bindings for [libossia](https://github.com/OSSIA/libossia).
 
 [docs](http://ossia.github.io/libossia/html/group___c_a_p_i.html) for the bound API.
 
