@@ -36,5 +36,5 @@ fn main() {
         .no_build_target(true)
         .build();
     println!("cargo:rustc-link-search=native={}", dst.display());
-    //println!("cargo:rustc-link-lib=static=ossia");
+    println!("cargo:rustc-link-lib=static=ossia");
 }
