@@ -32,9 +32,15 @@ fn main() {
 
     let dst = Config::new("/home/alex/local/src/libossia/")
         .define("OSSIA_C", "ON")
+        .define("OSSIA_CPP", "ON")
+        .define("OSSIA_MOST_STATIC", "ON")
         .define("OSSIA_STATIC", "ON")
         .no_build_target(true)
         .build();
-    println!("cargo:rustc-link-search=native={}", dst.display());
+    println!(
+        "cargo:rustc-link-search=native={}/build/src/",
+        dst.display()
+    );
     println!("cargo:rustc-link-lib=static=ossia");
+    println!("cargo:rustc-link-lib=dylib=stdc++");
 }
