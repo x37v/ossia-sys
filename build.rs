@@ -1,13 +1,10 @@
 extern crate bindgen;
 
+use cmake::Config;
 use std::env;
 use std::path::PathBuf;
 
 fn main() {
-    // Tell cargo to tell rustc to link the system bzip2
-    // shared library.
-    println!("cargo:rustc-link-lib=ossia");
-
     // Tell cargo to invalidate the built crate whenever the wrapper changes
     println!("cargo:rerun-if-changed=wrapper.h");
 
@@ -32,4 +29,12 @@ fn main() {
     bindings
         .write_to_file(out_path.join("bindings.rs"))
         .expect("Couldn't write bindings!");
+
+    let dst = Config::new("/home/alex/local/src/libossia/")
+        .define("OSSIA_C", "ON")
+        .define("OSSIA_STATIC", "ON")
+        .no_build_target(true)
+        .build();
+    println!("cargo:rustc-link-search=native={}", dst.display());
+    //println!("cargo:rustc-link-lib=static=ossia");
 }
