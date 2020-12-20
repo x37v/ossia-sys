@@ -21,8 +21,15 @@ fn main() {
 
         let p = ossia_create_parameter(
             root,
-            CString::new("/foo/unset").unwrap().as_ptr(),
+            CString::new("/foo/unsetf").unwrap().as_ptr(),
             CString::new("float").unwrap().as_ptr(),
+        );
+        ossia_parameter_set_access_mode(p, ossia_access_mode::GET);
+
+        let p = ossia_create_parameter(
+            root,
+            CString::new("/foo/unsets").unwrap().as_ptr(),
+            CString::new("string").unwrap().as_ptr(),
         );
         ossia_parameter_set_access_mode(p, ossia_access_mode::GET);
     }
