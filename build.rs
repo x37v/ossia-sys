@@ -16,6 +16,10 @@ fn main() {
         // bindings for.
         .header("wrapper.h")
         .clang_arg("-Ideps/libossia/src/ossia-c/")
+        .constified_enum_module("ossia_access_mode")
+        .constified_enum_module("ossia_bounding_mode")
+        .constified_enum_module("ossia_type")
+        .constified_enum_module("log_level")
         // Tell cargo to invalidate the built crate whenever any of the
         // included header files changed.
         .parse_callbacks(Box::new(bindgen::CargoCallbacks))
