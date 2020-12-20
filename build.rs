@@ -32,10 +32,14 @@ fn main() {
 
     let dst = Config::new("deps/libossia/")
         .define("OSSIA_C", "ON")
-        .define("OSSIA_CPP", "ON")
-        .define("OSSIA_MOST_STATIC", "ON")
+        .define("OSSIA_DATAFLOW", "OFF")
+        .define("OSSIA_EDITOR", "OFF")
+        .define("OSSIA_PROTOCOL_ARTNET", "OFF")
+        .define("OSSIA_PROTOCOL_AUDIO", "OFF")
+        .define("OSSIA_PROTOCOL_MIDI", "OFF")
         .define("OSSIA_STATIC", "ON")
-        .no_build_target(true)
+        .define("RTMIDI17_NO_WINUWP", "OFF")
+        .build_target("all")
         .build();
     println!(
         "cargo:rustc-link-search=native={}/build/src/",

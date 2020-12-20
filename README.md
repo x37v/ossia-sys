@@ -7,16 +7,6 @@ rust 'sys' bindings for [libossia](https://github.com/OSSIA/libossia).
 ## building
 
 make sure to initialize the submodule
+```shell
+git submodule update --init --recursive
 ```
-pushd deps/libossia/
-git submodule init
-git submodule update
-popd
-```
-
-I had to set CC and CXX to clang to build
-
-```
-CC=/usr/bin/clang CXX=/usr/bin/clang++ cargo build
-```
-
